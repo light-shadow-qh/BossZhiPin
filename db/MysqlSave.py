@@ -31,7 +31,8 @@ class Save2Mysql(object):
 
     def add_table(self):
         sql = """CREATE TABLE IF NOT EXISTS %s(
-        job_id INT(8) NOT NULL PRIMARY KEY,
+        id INT(8) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        job_id INT(8) NOT NULL,
         city_id INT(20) NOT NULL,
         job_name VARCHAR(100),
         job_area VARCHAR(255),
@@ -55,9 +56,7 @@ class Save2Mysql(object):
         sql = """
         INSERT INTO %s(
         %s
-        ) VALUES(%s)
-        ON DUPLICATE KEY UPDATE job_id = values(job_id);
-
+        ) VALUES(%s);
         """ % (self.table, keys, val_num)
         try:
             self.cursor.execute(sql, tuple(data.values()))
@@ -75,9 +74,5 @@ class Save2Mysql(object):
 
 
 if __name__ == '__main__':
-    mysql = Save2Mysql()
-    data = {
-
-    }
-    mysql.insert(data)
+    pass
 
