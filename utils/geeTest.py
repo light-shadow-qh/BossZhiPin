@@ -8,10 +8,7 @@ from selenium.webdriver import ActionChains
 import time
 from selenium.common.exceptions import TimeoutException
 
-"""
-代码参考：群主
-@Aesdhj
-"""
+
 BORDER = 93
 
 
